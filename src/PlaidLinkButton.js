@@ -7,7 +7,7 @@ const PlaidLinkButton = ({ token }) => {
     token,
     onSuccess: (public_token, metadata) => {
       // send public_token to server
-    //   fetch('//yourserver.com/get_access_token', {
+    //   fetch('http://localhost:3000/api/omnis/token/create', {
     //   method: 'POST',
     //   headers: {
     //     'Content-Type': 'application/json',
