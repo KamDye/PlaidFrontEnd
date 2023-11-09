@@ -27,9 +27,13 @@ function App() {
     checkAuth();
   }, []);
 
+  const dispatch = useDispatch();
+
   const handleConnectBank = async () => {
     try {
       // Only fetch the linkToken if it hasn't been fetched already
+      const linkToken = useSelector(state => state.linkToken.linkToken);
+
       if (!linkToken) {
         const response = await fetch('http://localhost:3000/api/omnis/token/create');
         if (!response.ok) {
@@ -37,6 +41,7 @@ function App() {
         }
         const data = await response.json();
         setLinkToken(data.link_token); // Assuming the response contains an object with the link_token property
+        dispatch(setId("test link token"));
       }
       // Set state to show the PlaidLinkButton
       setShowPlaidLink(true);
