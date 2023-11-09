@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 import './SignUpPage.css'; // Make sure the path to the CSS file is correct
 
 const SignUpPage = () => {
@@ -9,6 +11,7 @@ const SignUpPage = () => {
         password: '',
     });
 
+    const navigate = useNavigate();
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -19,7 +22,7 @@ const SignUpPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
+        navigate('/connect-bank'); // Use the route you want to navigate to
         // try {
         //   const response = await fetch('http://localhost:3000/api/omnis/account/register', {
         //     method: 'POST',
