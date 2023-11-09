@@ -7,6 +7,7 @@ import PlaidLinkButton from "./PlaidLinkButton"; // Import the component
 function App() {
   const [linkToken, setLinkToken] = useState(null);
 
+  const handleConnectBank = () => {linkToken && <PlaidLinkButton token={linkToken} />}
   useEffect(() => {
     // Fetch link_token from your backend here, then set it in state
     // For now, we're just setting a placeholder.
@@ -22,7 +23,9 @@ function App() {
       {/* Main content of the app */}
       <main>
         {/* Only render PlaidLinkButton if we have a linkToken */}
-        {linkToken && <PlaidLinkButton token={linkToken} />}
+        <button className="connect-button" onClick={handleConnectBank}>
+          Connect a Bank Account
+        </button>
       </main>
     </div>
   );
