@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
+
+import { useDispatch } from 'react-redux';
+import { setId } from '../redux/actions/idActions';
+
 import './LoginPage.css'; // Make sure to create a LoginPage.css file for styling
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const dispatch = useDispatch();
+ 
+
   const handleLogin = (event) => {
     event.preventDefault(); // Prevents the default form submit action
     // Perform login logic
     console.log('Login with:', email, password);
+    dispatch(setId("test data"));
   };
 
   return (

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import './SignUpPage.css'; // Make sure the path to the CSS file is correct
 
 const SignUpPage = () => {
@@ -19,29 +20,31 @@ const SignUpPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
     
-        try {
-          const response = await fetch('http://localhost:3000/api/omnis/account/register', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-          });
+        // try {
+        //   const response = await fetch('http://localhost:3000/api/omnis/account/register', {
+        //     method: 'POST',
+        //     headers: {
+        //       'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(formData),
+        //   });
     
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
+        //   if (!response.ok) {
+        //     throw new Error(`HTTP error! status: ${response.status}`);
+        //   }
     
-          const data = await response.json();
-          console.log('Form submitted successfully:', data);
-        } catch (error) {
-          console.error('There was an error submitting the form:', error);
-        }
+        //   const data = await response.json();
+        //   console.log('Form submitted successfully:', data);
+        // } catch (error) {
+        //   console.error('There was an error submitting the form:', error);
+        // }
     };
+
+    const id = useSelector(state => state.id.id);
 
     return (
         <div className="signup-container"> {/* Apply the CSS class here */}
-            <h2>Sign Up</h2>
+            <h2>{id}</h2>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="fullName">Full Name</label>
