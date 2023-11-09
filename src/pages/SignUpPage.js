@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './SignUpPage.css'; // Make sure the path to the CSS file is correct
 
 const SignUpPage = () => {
     const [formData, setFormData] = useState({
@@ -33,15 +34,13 @@ const SignUpPage = () => {
     
           const data = await response.json();
           console.log('Form submitted successfully:', data);
-          // Do something with the response data
         } catch (error) {
           console.error('There was an error submitting the form:', error);
-          // Handle errors here
         }
-      };
+    };
 
     return (
-        <div>
+        <div className="signup-container"> {/* Apply the CSS class here */}
             <h2>Sign Up</h2>
             <form onSubmit={handleSubmit}>
                 <div>

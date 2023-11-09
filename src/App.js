@@ -5,6 +5,7 @@ import SignUpPage from "./pages/SignUpPage"
 import PlaidLinkButton from "./PlaidLinkButton"; // Import the component
 
 import "./App.css";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   const [linkToken, setLinkToken] = useState(null);
@@ -29,6 +30,7 @@ function App() {
           Connect a Bank Account
         </button> */}
          <SignUpPage />
+         <LoginPage />
       </main>
     </div>
   );
