@@ -1,13 +1,15 @@
 // App.js
 import React, { useState, useEffect } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+
+import SignUpPage from "./pages/SignUpPage"
 import PlaidLinkButton from "./PlaidLinkButton"; // Import the component
+
+import "./App.css";
 
 function App() {
   const [linkToken, setLinkToken] = useState(null);
 
-  const handleConnectBank = () => {linkToken && <PlaidLinkButton token={linkToken} />}
+  const handleConnectBank = () => { linkToken && <PlaidLinkButton token={linkToken} /> }
   useEffect(() => {
     // Fetch link_token from your backend here, then set it in state
     // For now, we're just setting a placeholder.
@@ -15,7 +17,7 @@ function App() {
   }, []);
 
   return (
-<div className="App">
+    <div className="App">
       <header className="App-header">
         {/* You can put a navbar or a welcome message here */}
         <h1>Welcome to LucidTrade</h1>
@@ -23,9 +25,10 @@ function App() {
       {/* Main content of the app */}
       <main>
         {/* Only render PlaidLinkButton if we have a linkToken */}
-        <button className="connect-button" onClick={handleConnectBank}>
+        {/* <button className="connect-button" onClick={handleConnectBank}>
           Connect a Bank Account
-        </button>
+        </button> */}
+         <SignUpPage />
       </main>
     </div>
   );
