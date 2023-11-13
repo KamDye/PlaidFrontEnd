@@ -7,15 +7,15 @@ const PlaidLinkButton = ({ token }) => {
     token,
     onSuccess: (public_token, metadata) => {
       // send public_token to server
-    //   fetch('http://localhost:3000/api/omnis/token/public_exchange', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: json.Stringify({
-    //     public_token: public_token,
-    //   }),
-    // });
+      fetch('http://js.lucidtrades.com/api/omnis/token/public_exchange', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.Stringify({
+        public_token: public_token,
+      }),
+    });
       console.log('Plaid Link onSuccess: ', public_token, metadata);
     },
     onExit: (err, metadata) => {

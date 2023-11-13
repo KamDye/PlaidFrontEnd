@@ -1,6 +1,8 @@
 // App.js
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, Navigate, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { setLinkToken } from './redux/actions/linkTokenActions';
 
 import SignUpPage from './pages/SignUpPage';
 import PlaidLinkButton from './PlaidLinkButton';
@@ -9,7 +11,7 @@ import LoginPage from './pages/LoginPage';
 import './App.css';
 
 function App() {
-  const [linkToken, setLinkToken] = useState(null);
+  // const [linkToken, setLinkToken] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showPlaidLink, setShowPlaidLink] = useState(false);
 
@@ -28,11 +30,12 @@ function App() {
   }, []);
 
   const dispatch = useDispatch();
+  const linkToken = useSelector(state => state.linkToken.linkToken);
 
   const handleConnectBank = async () => {
     try {
       // Only fetch the linkToken if it hasn't been fetched already
-      const linkToken = useSelector(state => state.linkToken.linkToken);
+
 
       if (!linkToken) {
         const response = await fetch('http://localhost:3000/api/omnis/token/create');
@@ -40,8 +43,8 @@ function App() {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        setLinkToken(data.link_token); // Assuming the response contains an object with the link_token property
-        dispatch(setId("test link token"));
+        // setLinkToken(data.link_token); // Assuming the response contains an object with the link_token property
+        dispatch(setLinkToken("test link token"));
       }
       // Set state to show the PlaidLinkButton
       setShowPlaidLink(true);

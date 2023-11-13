@@ -22,25 +22,25 @@ const SignUpPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        navigate('/connect-bank'); // Use the route you want to navigate to
-        // try {
-        //   const response = await fetch('http://localhost:3000/api/omnis/account/register', {
-        //     method: 'POST',
-        //     headers: {
-        //       'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(formData),
-        //   });
+        try {
+          const response = await fetch('https://js.lucidtrades.com/api/omnis/account/register_login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+          });
     
-        //   if (!response.ok) {
-        //     throw new Error(`HTTP error! status: ${response.status}`);
-        //   }
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
     
-        //   const data = await response.json();
-        //   console.log('Form submitted successfully:', data);
-        // } catch (error) {
-        //   console.error('There was an error submitting the form:', error);
-        // }
+          const data = await response.json();
+          console.log('Form submitted successfully:', data);
+          navigate('/connect-bank'); // Use the route you want to navigate to
+        } catch (error) {
+          console.error('There was an error submitting the form:', error);
+        }
     };
 
     const id = useSelector(state => state.id.id);
