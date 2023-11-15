@@ -1,91 +1,88 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { setId } from '../redux/actions/idActions';
+// Import any other necessary libraries or components
+import "./SignUpPage.css"; // Make sure the path to the CSS file is correct
 
-import './SignUpPage.css'; // Make sure the path to the CSS file is correct
+function SignUpPage() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState(""); // For displaying error messages
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-const SignUpPage = () => {
-    const [formData, setFormData] = useState({
-        fullName: '',
-        email: '',
-        password: '',
-    });
+  // Function to handle the signup logic
+  const handleSignUp = async (event) => {
+    event.preventDefault();
+    setErrorMessage(""); // Clear any previous error messages
 
-    const navigate = useNavigate();
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
-    };
+    if (!email || !password || !name) {
+      setErrorMessage("Name, email, and password are required.");
+      return;
+    }
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-          const response = await fetch('https://js.lucidtrades.com/api/omnis/account/register_login', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-          });
-    
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-    
-          const data = await response.json();
-          console.log('Form submitted successfully:', data);
-          navigate('/connect-bank'); // Use the route you want to navigate to
-        } catch (error) {
-          console.error('There was an error submitting the form:', error);
+    // Additional validation can be added here (e.g., password strength)
+    console.log("We are in AYSC Function");
+    try {
+      // Add your signup logic here (e.g., API call to your backend)
+      // For demonstration, this is a placeholder for the actual signup process
+
+      const response = await fetch(
+        "https://js.lucidtrades.com/api/omnis/account/register_login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, email, password }),
         }
-    };
+      );
 
-    const id = useSelector(state => state.id.id);
+      const data = await response.json();
+      console.log("This is our response data", data);
+      if (data) {
+        // Navigate to the token creation component upon successful signup
+        dispatch(setId(data.userId));
+        navigate("/create-link-token");
+      } else {
+        // Handle signup error (e.g., display error message)
+        setErrorMessage(!data || "Signup failed.");
+      }
+    } catch (error) {
+      console.error("Error during signup:", error);
+      setErrorMessage("An error occurred during signup.");
+    }
+  };
 
-    return (
-        <div className="signup-container"> {/* Apply the CSS class here */}
-            <h2>{id}</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="fullName">Full Name</label>
-                    <input
-                        type="text"
-                        id="fullName"
-                        name="fullName"
-                        value={formData.fullName}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div>
-                    <label htmlFor="email">Email</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div>
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <button type="submit">Sign Up</button>
-            </form>
-        </div>
-    );
-};
+  return (
+    <div>
+      <h1>Sign Up</h1>
+      {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+      <form onSubmit={handleSignUp}>
+        <input
+          type="name"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  );
+}
 
 export default SignUpPage;

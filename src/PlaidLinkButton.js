@@ -1,19 +1,25 @@
 // PlaidLinkButton.js
 import React from 'react';
 import { usePlaidLink, PlaidLinkOptions, PlaidLinkOnSuccess } from 'react-plaid-link';
+import { useSelector } from 'react-redux';
+import "./PlaidLinkButton.css"
 
-const PlaidLinkButton = ({ token }) => {
+
+const PlaidLinkButton = ({  }) => {
+  const id = useSelector((state) => state.id.id);
+  const linkToken = useSelector((state) => state.linkToken.linkToken);
   const { open, ready, error } = usePlaidLink({
-    token,
+    token: linkToken,
     onSuccess: (public_token, metadata) => {
       // send public_token to server
-      fetch('http://js.lucidtrades.com/api/omnis/token/public_exchange', {
+      fetch('https://js.lucidtrades.com/api/omnis/token/public_exchange', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.Stringify({
+      body: JSON.stringify({
         public_token: public_token,
+        id: id,
       }),
     });
       console.log('Plaid Link onSuccess: ', public_token, metadata);
@@ -41,7 +47,10 @@ const PlaidLinkButton = ({ token }) => {
   });
 
   return (
-    <button onClick={() => open()} disabled={!ready || error}>
+    <button 
+      onClick={() => open()} 
+      disabled={!ready || error}
+      className="plaid-link-button">
       Connect a bank account
     </button>
   );

@@ -1,73 +1,103 @@
-/* App.css */
-
-:root {
-  /* Define your color scheme here */
-  --primary-color: #5b5bfc; /* Primary color for your app */
-  --secondary-color: #ff6f61; /* Secondary color for your app */
-  --background-color: #ffffff; /* Background color for the app */
-  --text-color: #333333; /* Primary text color */
-  --link-color: #1a0dab; /* Color for links */
-}
-
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: #f2f2f7;
+  color: #333;
+  font-size: 16px;
   line-height: 1.6;
 }
 
-.App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  overflow: hidden;
+  padding: 0 20px;
+}
+
+/* Typography */
+h1, h2, h3 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* Header */
+.header {
+  background: #007bff;
+  color: #fff;
+  padding: 1rem 0;
   text-align: center;
 }
 
-.App-header {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 20px;
+.header h1 {
+  margin: 0;
+}
+
+/* Form Styling */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: .5rem;
+}
+
+.form-group input[type="email"], .form-group input[type="password"] {
   width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-link {
-  color: var(--link-color);
-  margin-top: 20px;
-}
-
-/* Button styles */
-.connect-button {
-  font-size: 1em;
-  padding: 10px 20px;
-  margin-top: 30px;
+button {
+  display: inline-block;
+  background: #007bff;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 5px;
-  background: var(--primary-color);
-  color: white;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
 }
 
-.connect-button:hover, .connect-button:focus {
-  background: var(--secondary-color);
-  transform: translateY(-2px);
+button:hover {
+  background: #0056b3;
 }
 
-.connect-button:active {
-  transform: translateY(-1px);
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  h1 {
+      font-size: 2em;
+  }
+
+  h2 {
+      font-size: 1.75em;
+  }
+
+  .container {
+      width: 95%;
+  }
 }
