@@ -10,10 +10,11 @@ const PlaidLinkButton = ({  }) => {
   const linkToken = useSelector((state) => state.linkToken.linkToken);
   const { open, ready, error } = usePlaidLink({
     token: linkToken,
-    onSuccess: (public_token, metadata) => {
+    onSuccess: async (public_token, metadata) => {
       // send public_token to server
-      fetch('https://js.lucidtrades.com/api/omnis/token/public_exchange', {
+      const response = await fetch('https://js.lucidtrades.com/api/omnis/token/public_exchange/get_products', {
       method: 'POST',
+      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -22,6 +23,8 @@ const PlaidLinkButton = ({  }) => {
         id: id,
       }),
     });
+    const data = await response.json();
+    console.log(data)
       console.log('Plaid Link onSuccess: ', public_token, metadata);
     },
     onExit: (err, metadata) => {

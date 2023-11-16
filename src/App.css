@@ -3,26 +3,83 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
 }
 
 body {
-  background-color: #f2f2f7;
-  color: #333;
-  font-size: 16px;
-  line-height: 1.6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern sans-serif font */
+  background-color: #ffffff; /* White background */
 }
 
-.container {
+/* .container {
   width: 90%;
   max-width: 1200px;
   margin: auto;
   overflow: hidden;
   padding: 0 20px;
+} */
+
+.App {
+  text-align: center;
+  background-color: #ffffff; /* This ensures your app background is white */
 }
 
+.header {
+  /* If you want the header to be white instead of blue, change this to #ffffff */
+  background-color: #ffffff; /* Foreground color */
+  padding: 20px 0;
+}
+
+/* Other styles remain the same */
+
+.logo {
+  height: 50px; /* Adjust the size as needed */
+  width: 50px; /* Adjust the width to maintain the aspect ratio if necessary */
+  background-image: url('./assets/transparent.png'); /* Path to your logo */
+  background-size: contain; /* Ensure the logo fits within the dimensions */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.main-content {
+  padding: 40px 20px;
+}
+
+.title {
+  color: #1A237E; /* Foreground color */
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  color: #7E57C2; /* Accent color 1 */
+  margin-bottom: 40px;
+}
+
+.footer {
+  background-color: #00BCD4; /* Accent color 2 */
+  color: #ffffff; /* White text for footer */
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer a {
+  color: #ffffff; /* White links */
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer a:hover {
+  color: #5C86F0; /* Accent color 3 for hover state */
+}
+
+
+/* OLD CODE  */
+
+
 /* Typography */
-h1, h2, h3 {
+/* h1, h2, h3 {
   color: #333;
   margin-bottom: 1rem;
 }
@@ -41,10 +98,10 @@ h3 {
 
 p {
   margin-bottom: 1rem;
-}
+} */
 
 /* Header */
-.header {
+/* .header {
   background: #007bff;
   color: #fff;
   padding: 1rem 0;
@@ -53,10 +110,10 @@ p {
 
 .header h1 {
   margin: 0;
-}
+} */
 
 /* Form Styling */
-.form-group {
+/* .form-group {
   margin-bottom: 1.25rem;
 }
 
@@ -85,10 +142,10 @@ button {
 
 button:hover {
   background: #0056b3;
-}
+} */
 
 /* Responsive Design */
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   h1 {
       font-size: 2em;
   }
@@ -100,4 +157,4 @@ button:hover {
   .container {
       width: 95%;
   }
-}
+} */
