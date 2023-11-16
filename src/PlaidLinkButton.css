@@ -12,7 +12,7 @@
 
 .plaid-link-button {
     padding: 10px 20px;
-    background-color: #4CAF50; /* Button background color */
+    background-color: #7E57C2; /* Button background color */
     color: white;
     border: none;
     border-radius: 4px;
@@ -22,7 +22,7 @@
 }
 
 .plaid-link-button:hover {
-    background-color: #45a049; /* Darker shade for hover effect */
+    background-color: #573d84; /* Darker shade for hover effect */
 }
 
 

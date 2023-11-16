@@ -18,12 +18,15 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <div className="main-content">
-          <h1 className="title">Welcome to LucidTrade</h1>
-          <div>
-            <img src={logo} className="logo" alt="LucidTrade Logo" />
-          </div>
+      <header className="header">
+        <img src={logo} className="logo" alt="LucidTrade Logo" />
+      </header>
+      <div className="main-content">
+        <div className="title">
+          <h1>Welcome to LucidTrade</h1>
           <p className="subtitle">Invest in your dreams with us.</p>
+        </div>
+        <div className="section">
           <main>
             <Routes>
               <Route path="/" element={<Navigate replace to="/signup" />} />
@@ -33,6 +36,7 @@ function App() {
               <Route path="/plaid-link-button" element={<PlaidLinkButton />} />
             </Routes>
           </main>
+          </div>
         </div>
       </div>
     </Router>

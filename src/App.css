@@ -1,160 +1,94 @@
-/* General Reset */
+/* Basic reset for any default styling */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern sans-serif font */
-  background-color: #ffffff; /* White background */
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: #1A237E; /* Primary text color */
 }
-
-/* .container {
-  width: 90%;
-  max-width: 1200px;
-  margin: auto;
-  overflow: hidden;
-  padding: 0 20px;
-} */
 
 .App {
-  text-align: center;
-  background-color: #ffffff; /* This ensures your app background is white */
-}
-
-.header {
-  /* If you want the header to be white instead of blue, change this to #ffffff */
-  background-color: #ffffff; /* Foreground color */
-  padding: 20px 0;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  overflow: hidden; /* Ensures that child elements adhere to the border radius */
 }
 
 /* Other styles remain the same */
 
-.logo {
-  height: 50px; /* Adjust the size as needed */
-  width: 50px; /* Adjust the width to maintain the aspect ratio if necessary */
-  background-image: url('./assets/transparent.png'); /* Path to your logo */
-  background-size: contain; /* Ensure the logo fits within the dimensions */
-  background-repeat: no-repeat;
-  background-position: center;
+/* Centering content in the header */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1A237E;
+  padding: 20px 0;
+  border-bottom: 3px solid #7E57C2; /* Gives a 3D effect */
 }
+
+.logo {
+  width: auto;
+  height: 150px; /* Adjust to your preference */
+  box-shadow: 40px 40px 40px rgba(20, 20, 20, 0.2); /* Subtle shadow for depth */
+  border-radius: 200px;
+  margin: 20px;
+  padding: 10px;
+}
+
+/* Centering title and giving a 3D effect to the section */
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Stack the elements vertically */
+  gap: 0.5rem;
+  font-size: 2rem;
+  color: #1A237E;
+  text-shadow: none; /* Remove shadow from the title */
+}
+
+/* Styling for main content sections */
+.section {
+  border-radius: 10px; /* Rounds the edges */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds shadow for 3D effect */
+  margin: 2rem;
+  padding: 2rem;
+  background-color: #f2f2f2; /* Light grey background for sections */
+}
+
+/* Other styles remain the same */
 
 
 .main-content {
-  padding: 40px 20px;
+  flex: 1; /* Takes up all available space */
+  padding: 2rem;
+  background-color: #ffffff; /* White background for main content */
 }
 
-.title {
-  color: #1A237E; /* Foreground color */
-  margin-bottom: 20px;
-}
 
 .subtitle {
-  color: #7E57C2; /* Accent color 1 */
-  margin-bottom: 40px;
+  color: #7E57C2; /* Accent color for subtitles */
+  margin: 1rem 0;
 }
 
 .footer {
-  background-color: #00BCD4; /* Accent color 2 */
-  color: #ffffff; /* White text for footer */
-  padding: 10px 0;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-}
-
-.footer a {
-  color: #ffffff; /* White links */
-  text-decoration: none;
-  margin: 0 10px;
-}
-
-.footer a:hover {
-  color: #5C86F0; /* Accent color 3 for hover state */
-}
-
-
-/* OLD CODE  */
-
-
-/* Typography */
-/* h1, h2, h3 {
-  color: #333;
-  margin-bottom: 1rem;
-}
-
-h1 {
-  font-size: 2.5em;
-}
-
-h2 {
-  font-size: 2em;
-}
-
-h3 {
-  font-size: 1.5em;
-}
-
-p {
-  margin-bottom: 1rem;
-} */
-
-/* Header */
-/* .header {
-  background: #007bff;
-  color: #fff;
-  padding: 1rem 0;
+  background-color: #00BCD4; /* Accent color for footer */
+  padding: 1rem;
+  color: #ffffff;
   text-align: center;
 }
 
-.header h1 {
-  margin: 0;
-} */
-
-/* Form Styling */
-/* .form-group {
-  margin-bottom: 1.25rem;
+.footer a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 0.5rem;
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: .5rem;
+.footer a:hover {
+  color: #5C86F0; /* Accent color when hovering over links */
 }
-
-.form-group input[type="email"], .form-group input[type="password"] {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-button {
-  display: inline-block;
-  background: #007bff;
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-button:hover {
-  background: #0056b3;
-} */
-
-/* Responsive Design */
-/* @media screen and (max-width: 768px) {
-  h1 {
-      font-size: 2em;
-  }
-
-  h2 {
-      font-size: 1.75em;
-  }
-
-  .container {
-      width: 95%;
-  }
-} */
