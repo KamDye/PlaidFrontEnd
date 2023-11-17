@@ -14,7 +14,7 @@ const PlaidLinkButton = () => {
       // send public_token to server
       const response = await fetch('https://js.lucidtrades.com/api/omnis/token/public_exchange/get_products', {
       method: 'POST',
-      mode: 'no-cors',
+      //mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json',
       },
