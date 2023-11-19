@@ -8,6 +8,7 @@ import {
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
 import CreateLinkToken from "./CreateLinkToken"; // New file to create
+import CreditScoreDisplay from "./pages/creditScoreDisplay";
 import PlaidLinkButton from "./PlaidLinkButton";
 import logo from "./assets/transparent.png";
 import "./App.css";
@@ -34,6 +35,7 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/create-link-token" element={<CreateLinkToken />} />
               <Route path="/plaid-link-button" element={<PlaidLinkButton />} />
+              <Route path="/displayScore" element={<CreditScoreDisplay omnisScore={720} equifaxScore={700} experianScore={710} transunionScore={705} />}  />
             </Routes>
           </main>
           </div>
