@@ -24,7 +24,7 @@ body::before, body::after {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 30%;
+  width: 30%; /* Default width */
   background-image: url('./assets/LucidPic.png');
   background-repeat: repeat;
 }
@@ -35,6 +35,13 @@ body::before {
 
 body::after {
   right: 0;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+  body::before, body::after {
+      width: 50%; /* Increased width on smaller screens */
+  }
 }
 
 
@@ -57,6 +64,42 @@ body::after {
   background-color: #1A237E;
   padding: 20px 0;
   border-bottom: 3px solid #7E57C2; /* Gives a 3D effect */
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .header {
+      padding: 20px;
+      font-size: 1.2em;
+  }
+
+  .content {
+      margin: 20px auto;
+      width: 75%;
+      padding: 30px;
+  }
+
+  .footer {
+      padding: 20px;
+      font-size: 1.2em;
+  }
+}
+
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .header {
+      font-size: 1.4em;
+  }
+
+  .content {
+      width: 60%;
+      padding: 40px;
+  }
+
+  .footer {
+      font-size: 1.4em;
+  }
 }
 
 .logo {
