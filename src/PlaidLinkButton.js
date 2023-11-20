@@ -12,9 +12,11 @@ const PlaidLinkButton = () => {
     token: linkToken,
     onSuccess: async (public_token, metadata) => {
       // send public_token to server
+      console.log('Entered API what is it public token', public_token);
+      console.log('Entered API what is the ID', id);
       const response = await fetch('https://js.lucidtrades.com/api/omnis/token/public_exchange/get_products', {
       method: 'POST',
-      //mode: 'no-cors',
+      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json',
       },

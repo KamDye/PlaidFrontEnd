@@ -15,6 +15,7 @@ function CreateLinkToken() {
         const createToken = async () => {
             setIsLoading(true); // Set loading to true when the token creation starts
             try {
+                console.log("This is the ID inside Create Link token", id)
                 // Replace with your token creation logic (API call to your backend, etc.)
                 const response = await fetch('https://js.lucidtrades.com/api/omnis/token/create', {
                     method: 'POST',

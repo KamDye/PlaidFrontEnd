@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 // Import any other necessary libraries or components
 import './LoginPage.css'; // Make sure to create a LoginPage.css file for styling
 
+
+
 function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -24,7 +26,7 @@ function LoginPage() {
         try {
             // Add your login logic here (e.g., API call to your backend)
             // For demonstration, this is a placeholder for the actual login process
-            const response = await fetch('/api/login', {
+            const response = await fetch('https://js.lucidtrades.com/api/omnis/account/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -34,12 +36,13 @@ function LoginPage() {
 
             const data = await response.json();
 
-            if (data.success) {
+            if (data) {
                 // Navigate to the token creation component upon successful login
+                console.log("This is the login response", data)
                 navigate('/create-link-token');
             } else {
                 // Handle login error (e.g., display error message)
-                setErrorMessage(data.message || 'Login failed.');
+                setErrorMessage(data || 'Login failed.');
             }
         } catch (error) {
             console.error('Error during login:', error);
