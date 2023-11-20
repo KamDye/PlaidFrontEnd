@@ -3,9 +3,11 @@ import React from 'react';
 import { usePlaidLink, PlaidLinkOptions, PlaidLinkOnSuccess } from 'react-plaid-link';
 import { useSelector } from 'react-redux';
 import "./PlaidLinkButton.css"
+import { useNavigate } from 'react-router-dom';
 
 
 const PlaidLinkButton = () => {
+  const navigate = useNavigate();
   const id = useSelector((state) => state.id.id);
   const linkToken = useSelector((state) => state.linkToken.linkToken);
   const { open, ready, error } = usePlaidLink({
@@ -25,9 +27,10 @@ const PlaidLinkButton = () => {
         id: id,
       }),
     });
-    const data = await response.json();
-    console.log(data)
+    // const data = await response.json();
+    // console.log(data)
       console.log('Plaid Link onSuccess: ', public_token, metadata);
+      navigate('/displayScore');
     },
     onExit: (err, metadata) => {
       // handle the case when your user exits Link
