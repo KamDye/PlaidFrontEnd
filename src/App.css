@@ -24,7 +24,7 @@ body::before, body::after {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 30%; /* Default width */
+  width: 20%; /* Default width */
   background-image: url('./assets/LucidPic.png');
   background-repeat: repeat;
 }

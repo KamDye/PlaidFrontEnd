@@ -23,7 +23,7 @@ h1 {
   text-align: center;
 }
 
-input[type="email"], input[type="password"],  input[type="name"] {
+input[type="email"], input[type="password"], input[type="firstName"], input[type="lastName"], input[type="name"] {
   width: 100%;
   padding: 10px;
   margin: 10px 0;

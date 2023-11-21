@@ -67,6 +67,18 @@ function SignUpPage() {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
+                {/* <input
+          type="firstname"
+          placeholder="First name"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+        <input
+          type="lastname"
+          placeholder="Last name"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+        /> */}
         <input
           type="email"
           placeholder="Email"
