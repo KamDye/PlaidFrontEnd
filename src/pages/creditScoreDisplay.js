@@ -4,7 +4,7 @@ const CreditScoreDisplay = ({ omnisScore, equifaxScore, experianScore, transunio
   return (
     <div style={{ textAlign: 'center' }}>
       <div style={{ fontSize: '30px', marginBottom: '20px' }}>
-        OMNIS: {omnisScore}
+        OMNIS Score: {omnisScore}
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
         <div>
