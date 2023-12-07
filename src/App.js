@@ -35,7 +35,7 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/create-link-token" element={<CreateLinkToken />} />
               <Route path="/plaid-link-button" element={<PlaidLinkButton />} />
-              <Route path="/displayScore" element={<CreditScoreDisplay omnisScore={83} equifaxScore={650} experianScore={710} transunionScore={674} />}  />
+              <Route path="/displayScore" element={<CreditScoreDisplay  />}  />
             </Routes>
           </main>
           </div>

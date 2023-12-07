@@ -30,7 +30,7 @@ function SignUpPage() {
       // For demonstration, this is a placeholder for the actual signup process
 
       const response = await fetch(
-        "https://js.lucidtrades.com/api/omnis/account/register_login",
+        "http://localhost:8080/api/omnis/account/register_login",
         {
           method: "POST",
           headers: {

@@ -16,9 +16,9 @@ const PlaidLinkButton = () => {
       // send public_token to server
       console.log('Entered API what is it public token', public_token);
       console.log('Entered API what is the ID', id);
-      const response = await fetch('https://js.lucidtrades.com/api/omnis/token/public_exchange/get_products', {
+      const response = await fetch('http://localhost:8080/api/omnis/token/public_exchange/get_products', {
       method: 'POST',
-      mode: 'no-cors',
+      //mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -32,7 +32,7 @@ const PlaidLinkButton = () => {
       console.log('Plaid Link onSuccess: ', public_token, metadata);
       navigate('/displayScore');
     },
-    onExit: (err, metadata) => {
+    onExit: async (err, metadata) => {
       // handle the case when your user exits Link
           // Save data from the onExit handler
     // supportHandler.report({
@@ -44,7 +44,7 @@ const PlaidLinkButton = () => {
     //   });
       console.log('Plaid Link onExit: ', err, metadata);
     },
-    onEvent: (eventName, metadata) => {
+    onEvent: async (eventName, metadata) => {
       // optionally capture Link flow events, helpful for logging and debugging
     //   onEvent: (eventName, metadata) => {
     //     // send event and metadata to self-hosted analytics

@@ -17,7 +17,7 @@ function CreateLinkToken() {
             try {
                 console.log("This is the ID inside Create Link token", id)
                 // Replace with your token creation logic (API call to your backend, etc.)
-                const response = await fetch('https://js.lucidtrades.com/api/omnis/token/create', {
+                const response = await fetch('http://localhost:8080/api/omnis/token/create_payroll_linktoken', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
